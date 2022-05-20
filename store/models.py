@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from category.models import Category
 
-# Custom Push
+# Custom Push 123456
 
 # Create your models here.
 class Product(models.Model):
