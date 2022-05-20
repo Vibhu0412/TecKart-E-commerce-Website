@@ -3,8 +3,6 @@ from django.urls import reverse
 from category.models import Category
 
 
-# Custom Push 123456
-
 # Create your models here.
 class Product(models.Model):
     product_name = models.CharField(max_length=200, unique=True)
