@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.menu_links',    # Can be accessed in any templates
+                'carts.context_processors.counter',    # Can be accessed in any templates
             ],
         },
     },
