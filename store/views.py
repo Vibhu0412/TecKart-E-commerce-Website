@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Variation
 from category.models import Category
 from carts.models import Cart, CartItem
 from carts.views import _cart_id
