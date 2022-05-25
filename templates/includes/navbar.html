@@ -75,7 +75,7 @@
 <!--		user object is available is any templates you can use directly anywhere			-->
 						<small class="title text-muted">Welcome {{user.first_name}}!</small>
 						<div>
-							<a href="#">Dashboard</a> <span class="dark-transp"> | </span>
+							<a href="{% url 'dashboard' %}">Dashboard</a> <span class="dark-transp"> | </span>
 							<a href="{% url 'logout' %}"> Logout</a>
 						</div>
 					</div>
