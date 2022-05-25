@@ -16,3 +16,6 @@ class AccountAdmin(UserAdmin):
 
 
 admin.site.register(Account, AccountAdmin)
+
+# Changing Admin Header
+admin.site.site_header = "VS E-Commerce Admin Panel"
