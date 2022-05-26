@@ -5,6 +5,9 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
+from carts.views import _cart_id
+from carts.models import Cart, CartItem
+
 # Verification Email
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
@@ -67,6 +70,19 @@ def login(request):
 
         user = auth.authenticate(email=email, password=password)
         if user is not None:
+            # Fetching the session id to populate cart items if GUEST sign in to his account.
+            try:
+                cart = Cart.objects.get(cart_id=_cart_id(request))
+                is_cart_item_exists = CartItem.objects.filter(cart=cart).exists()
+                if is_cart_item_exists:
+                    cart_item = CartItem.objects.filter(cart=cart)
+
+                    for item in cart_item:
+                        item.user = user
+                        item.save()
+            except:
+                pass
+
             auth.login(request, user)
             messages.success(request, "You are now logged in.")
             return redirect('dashboard')
