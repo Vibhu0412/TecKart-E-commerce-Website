@@ -30,10 +30,10 @@ class Product(models.Model):
         return avg
 
     def countReview(self):
-        reviews = ReviewRating.objects.filter(product=self, status=True).aggregate(bubu=Count('id'))
+        reviews = ReviewRating.objects.filter(product=self, status=True).aggregate(count_var=Count('id'))
         count = 0
-        if reviews['bubu'] is not None:
-            count = float(reviews['bubu'])
+        if reviews['count_var'] is not None:
+            count = float(reviews['count_var'])
         return int(count)
 
     def __str__(self):
